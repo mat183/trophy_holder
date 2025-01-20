@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trophy_holder/counter_up_timer.dart';
+import 'package:trophy_holder/widgets/timer/counter_up_timer.dart';
 
 class TrophyHolder extends StatefulWidget {
   const TrophyHolder({super.key});
@@ -45,23 +45,21 @@ class _TrophyHolderState extends State<TrophyHolder> {
             0, 0, 0, 1, 0, // Alpha channel (preserve transparency)
           ]);
 
-    return MaterialApp(
-      home: Scaffold(
-        body: Column(
-          children: [
-            ColorFiltered(
-              colorFilter: conditionalColorFilter,
-              child: Image.asset('assets/images/trophy2.png'),
-            ),
-            const SizedBox(height: 20),
-            Text(motivationalText),
-            const SizedBox(height: 250),
-            CounterUpTimer(
-              buttonText: timerButtonText,
-              onButtonPress: toggleHoldingTrophy,
-            ),
-          ],
-        ),
+    return Scaffold(
+      body: Column(
+        children: [
+          ColorFiltered(
+            colorFilter: conditionalColorFilter,
+            child: Image.asset('assets/images/trophy2.png'),
+          ),
+          const SizedBox(height: 20),
+          Text(motivationalText),
+          const SizedBox(height: 250),
+          CounterUpTimer(
+            buttonText: timerButtonText,
+            onButtonPress: toggleHoldingTrophy,
+          ),
+        ],
       ),
     );
   }
